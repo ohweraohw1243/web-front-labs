@@ -26,3 +26,21 @@ header {
 a { 
     text-decoration: none;
 }
+a:link {
+    color: blue;
+}
+a:visited {
+    color: purple;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+    background-color: lightgray;
+    box-shadow: 2px 2px 5px black;
+    padding: 5px;
+    border-radius: 5px;
+}
+a:active {
+    color:black;
+    opacity: 0.3;
+}
