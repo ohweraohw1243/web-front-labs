@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <style>
+        div {
+             width: 300px;
+             height: 70px;
+             line-height: 70px;
+             text-align: center;
+             background-color: white;
+             border: 1px dotted darkgreen;
+             margin: 15px;
+             z-index: 5;
+             position: relative;
+         }
+         .position-relative {
+             position: relative;
+             left: -14px;
+             top: -45px;
+             z-index: 1;
+         }
+         .position-relative:hover {
+             z-index: 10;
+         }
+         .position-absolute {
+             position: absolute;
+             left: 300px;
+         }
+         .position-absolute:hover {
+             width: 700px;
+             height: 140px;
+             padding: 15px;
+             background: #2b2b2b;
+             box-shadow: 5px 5px 15px black;
+             border-radius: 15px;
+             transition: 1s;
+             overflow: auto;
+         }
+         footer, header {
+             z-index: 100;
+         }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторные работы
+    </header>
+
+    <main>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-absolute">absolute</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+    </main>
+    <footer>
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
