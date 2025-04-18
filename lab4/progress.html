@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <style>
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            text-align: left;
+            z-index: 100;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: sans-serif;
+            background-color: lightgray;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bar {
+            width: 300px;
+            height: 25px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .fill {
+            height: 100%;
+            width: 0%;
+            background: black;
+            transition: width 0.1s linear;
+            color: yellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: gray;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 2px 4px gray;
+            transition: box-shadow 0.2s;
+        }
+
+        button:hover {
+            box-shadow: 0 6px 12px black;
+        }
+
+        button:active {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+        <button id="btn">Нажмите и удерживайте</button>
+
+        <script>
+            const btn = document.getElementById('btn');
+            const fill = document.getElementById('fill');
+            let progress = 0;
+            let timer;
+
+            btn.onmousedown = () => {
+                progress = 0;
+                fill.style.width = '0%';
+                fill.textContent = '0%';
+                timer = setInterval(() => {
+                    if (progress < 100) {
+                        progress += 2;
+                        fill.style.width = progress + '%';
+                        fill.textContent = progress + '%';
+                    } else {
+                        clearInterval(timer);
+                    }
+                }, 100); // 2% * 100ms = 5 секунд
+            };
+
+            btn.onmouseup = btn.onmouseleave = () => clearInterval(timer);
+        </script>
+    </main>
+    <footer>
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
