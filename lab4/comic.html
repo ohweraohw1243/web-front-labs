@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .comic-container {
+            position: relative;
+            width: 800px;
+            margin: 50px auto;
+        }
+
+        .comic-container img {
+            width: 100%;
+            display: block;
+        }
+
+        .bubble {
+            position: absolute;
+            background: white;
+            border: 2px solid black;
+            border-radius: 50%;
+            padding: 10px 20px;
+            box-shadow: 3px 3px 10px black;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .comic-container:hover .bubble {
+            opacity: 1;
+        }
+
+        .bubble1 { top: 50px; left: 100px;  }
+        .bubble2 { top: 120px; left: 200px; }
+        .bubble3 { top: 200px; left: 300px; }
+        .bubble4 { top: 250px; left: 400px; }
+
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторные работы
+    </header>
+    <main>
+        <div class="comic-container">
+            <img src="kaiangel.webp"> 
+            <div class="bubble bubble4"></div>
+            <div class="bubble bubble3"></div>
+            <div class="bubble bubble2"></div>
+            <div class="bubble bubble1">меня посадили</div>
+        </div>
+    </main>
+    <footer>
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
