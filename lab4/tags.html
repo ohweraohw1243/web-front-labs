@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <style>
+
+        body {
+         margin: 0;
+         overflow: hidden;
+       }
+   
+       header {
+         position: absolute;
+         top: 0;
+         width: 100%;
+         z-index: 100
+       }
+   
+       .tag-cloud {
+         position: relative;
+         height: calc(100vh - 80px);
+       }
+   
+       .tag-o {
+         position: absolute;
+         transform-origin: center;
+       }
+   
+       .tag {
+         display: inline-block;
+         transition: transform 0.3s ease, text-shadow 0.3s ease, z-index 0.3s ease;
+       }
+   
+       .tag:hover {
+         transform: scale(1.5);
+         z-index: 1000;
+         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+       }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторные работы
+    </header>
+    <main>
+        <div class="tag-cloud">
+            <span class="tag-o" style="top: 10%; left: 25%; transform: rotate(-12deg);">
+              <span class="tag" style="color: red; font-size: 52px;">absolute</span>
+            </span>
+            <span class="tag-o" style="top: 15%; left: 40%; transform: rotate(6deg);">
+              <span class="tag" style="color: blue; font-size: 64px;">relative</span>
+            </span>
+            <span class="tag-o" style="top: 18%; left: 60%; transform: rotate(-20deg);">
+              <span class="tag" style="color: green; font-size: 48px;">fixed</span>
+            </span>
+            <span class="tag-o" style="top: 28%; left: 30%; transform: rotate(15deg);">
+              <span class="tag" style="color: orange; font-size: 56px;">top</span>
+            </span>
+            <span class="tag-o" style="top: 32%; left: 55%; transform: rotate(8deg);">
+              <span class="tag" style="color: purple; font-size: 60px;">bottom</span>
+            </span>
+            <span class="tag-o" style="top: 35%; left: 70%; transform: rotate(-10deg);">
+              <span class="tag" style="color: yellow; font-size: 50px;">left</span>
+            </span>
+            <span class="tag-o" style="top: 42%; left: 45%; transform: rotate(0deg);">
+              <span class="tag" style="color: black; font-size: 72px;">position</span>
+            </span>
+            <span class="tag-o" style="top: 50%; left: 20%; transform: rotate(-6deg);">
+              <span class="tag" style="color: pink; font-size: 48px;">z-index</span>
+            </span>
+            <span class="tag-o" style="top: 52%; left: 60%; transform: rotate(10deg);">
+              <span class="tag" style="color: brown; font-size: 58px;">right</span>
+            </span>
+            <span class="tag-o" style="top: 55%; left: 75%; transform: rotate(-18deg);">
+              <span class="tag" style="color: cyan; font-size: 52px;">margin</span>
+            </span>
+            <span class="tag-o" style="top: 60%; left: 35%; transform: rotate(5deg);">
+              <span class="tag" style="color: darkblue; font-size: 60px;">padding</span>
+            </span>
+            <span class="tag-o" style="top: 65%; left: 50%; transform: rotate(-8deg);">
+              <span class="tag" style="color: darkgreen; font-size: 46px;">display</span>
+            </span>
+            <span class="tag-o" style="top: 70%; left: 30%; transform: rotate(12deg);">
+              <span class="tag" style="color: violet; font-size: 54px;">overflow</span>
+            </span>
+            <span class="tag-o" style="top: 78%; left: 65%; transform: rotate(-5deg);">
+              <span class="tag" style="color: darkred; font-size: 50px;">width</span>
+            </span>
+            <span class="tag-o" style="top: 80%; left: 40%; transform: rotate(3deg);">
+              <span class="tag" style="color: teal; font-size: 52px;">height</span>
+            </span>
+    </main>
+    <footer>
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
