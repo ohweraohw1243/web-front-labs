@@ -15,6 +15,14 @@
             let result = a + b
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result); 
         }
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
     </script>
     <style>
         .message{
@@ -29,21 +37,25 @@
         background-color: whitesmoke;
         border-color: green;
         }
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header onclick="showAuthor()">
         НГТУ, ФБ, Лабораторная работа 5
-
-    </header>
+    </header>   
     
     <main>
         <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
 
-    <footer>
-        <hr>
+    <footer ondblclick="showFooter()">
         &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
     </footer>
 
