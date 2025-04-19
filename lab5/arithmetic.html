@@ -108,6 +108,12 @@
             let result = a**b;
             alert( a + '**' +  b + '='  + result); 
         }
+        function changeOutput(buttonNum, backColor, textColor) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+        }
     </script>
     <style>
         .message{
@@ -128,6 +134,11 @@
         footer {
             cursor: pointer;
         }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
@@ -137,13 +148,21 @@
     
     <main>
         <label>Первое число: <input type="number" value="5154" id="numberA"><br></label>
-       <label>Второе число: <input type="number" value="7891" id="numberB"><br></label>
+        <label>Второе число: <input type="number" value="7891" id="numberB"><br></label>
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         <div class="message" onclick="showRaz()">Найти разность чисел</div>
         <div class="message" onclick="showUmn()">Найти произведение чисел</div>
         <div class="message" onclick="showDiv()">Найти отношение чисел</div>
         <div class="message" onclick="showSte()">Найти степень числа</div>
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'white', 'green')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'purple', 'red')">
+        </div>
+
+        <div id="output"></div>
     </main>
 
     <footer ondblclick="showFooter()">
