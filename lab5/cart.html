@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        function clearCart() {
+            document.getElementById('productApple').value = '';
+            document.getElementById('productPear').value = '';
+            document.getElementById('productOrange').value = '';
+            document.getElementById('productMelon').value = '';
+            document.getElementById('productBanana').value = '';
+            document.getElementById('total').textContent = '';
+        }
+        function calculateTotal() {
+            let total = 0;
+            const inputs = document.querySelectorAll(".product input[type='number']");
+            inputs.forEach(input => {
+                price = parseInt(input.dataset.price);
+                quantity = parseInt(input.value);
+                total += price * quantity;
+            });
+            document.getElementById("total").textContent = 'Общая цена: ' + total + ' Рублей';
+        }
+    </script>
+    <style>
+        .message{
+        cursor: pointer;
+        display: inline-block;
+        width: 250px;
+        height: 30px;
+        border-radius: 5%;
+        border: 5px solid;
+        text-align: center;
+        line-height: 30px;
+        background-color: whitesmoke;
+        border-color: green;
+        }
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
+        .cart {
+            background-color: aquamarine;
+            border: 1px solid black;
+            padding: 20px;
+            max-width: 400px;
+            margin: 30px 0 30px 30px;
+            border-radius: 8px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .product label {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-weight: bold;
+        }
+        .product input[type="number"] {
+            width: 120px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #total {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>   
+    
+    <main>
+        <div class="cart">
+            <div class="product">
+                <label>Яблоки (100р/шт): <input type="number" min="0" data-price="100" id="productApple" placeholder="Введите количество яблок"></label>
+            </div>
+            <div class="product">
+                <label>Груши (80р/шт): <input type="number" min="0" data-price="80" id="productPear" placeholder="Введите количество груш"></label>
+            </div>
+            <div class="product">
+                <label>Апельсины (150р/шт): <input type="number" min="0" data-price="150" id="productOrange" placeholder="Введите количество апельсин"></label>
+            </div>
+            <div class="product">
+                <label>Дыни (300р/шт): <input type="number" min="0" data-price="300" id="productMelon" placeholder="Введите количество дынь"></label>
+            </div>
+            <div class="product">
+                <label>Бананы (250р/шт): <input type="number" min="0" data-price="250" id="productBanana" placeholder="Введите количество бананов"></label>
+            </div>
+
+            <button onclick="calculateTotal()">Рассчитать</button>
+            <button onclick="clearCart()">Очистить</button>
+            
+            <div id="total"></div>
+        </div>  
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
