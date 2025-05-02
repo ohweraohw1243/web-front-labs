@@ -27,6 +27,11 @@
              document.getElementById('brightnessOutput').innerText = value;
              document.getElementById('brightnessImage').style.filter = 'brightness(' + value +')';
          }
+         function contrastChange(){
+             let value = document.getElementById('contrastValue').value + '%';
+             document.getElementById('contrastOutput').innerText = value;
+             document.getElementById('contrastImage').style.filter = 'contrast(' + value +')';
+         }
     </script>
     <style>
         header {
@@ -56,6 +61,16 @@
             <span id="brightnessOutput"></span>
         </div>
         <div><img src="kai.jpg" id="brightnessImage"></div>
+        <div>
+            contrast:
+            <input type="range" value="100" min="0" max="500" step="1" onchange="contrastChange()" id="contrastValue">
+            <span id="contrastOutput"></span>
+        </div>
+        <div><img src="kai.jpg" id="contrastImage"></div>
+        
+
+
+
     </main>
     
     <footer ondblclick="showFooter()">
