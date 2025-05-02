@@ -32,6 +32,11 @@
              document.getElementById('contrastOutput').innerText = value;
              document.getElementById('contrastImage').style.filter = 'contrast(' + value +')';
          }
+         function grayscaleChange(){
+             let value = document.getElementById('grayscaleValue').value + '%';
+             document.getElementById('grayscaleOutput').innerText = value;
+             document.getElementById('grayscaleImage').style.filter = 'grayscale(' + value +')';
+         }
     </script>
     <style>
         header {
@@ -67,10 +72,13 @@
             <span id="contrastOutput"></span>
         </div>
         <div><img src="kai.jpg" id="contrastImage"></div>
+        <div>
+            grayscale:
+            <input type="range" value="0" min="0" max="100" step="1" onchange="grayscaleChange()" id="grayscaleValue">
+            <span id="grayscaleOutput"></span>
+        </div>
+        <div><img src="kai.jpg" id="grayscaleImage"></div>
         
-
-
-
     </main>
     
     <footer ondblclick="showFooter()">
