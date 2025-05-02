@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        function blurChange() {
+             let value = document.getElementById('blurValue').value + 'px';
+             document.getElementById('blurOutput').innerText = value;
+             document.getElementById('blurImage').style.filter = 'blur(' + value +')';
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>   
+    
+    <main>
+        <div>
+            Фильтр Blur:
+            <input type="range"  value="0" min="0" max="20" onchange="blurChange()" id="blurValue">
+            <span id="blurOutput"></span>
+        </div>
+        <div><img src="kai.jpg" id="blurImage"></div>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
