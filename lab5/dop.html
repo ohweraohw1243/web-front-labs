@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        function applyFilter(event) {
+            const image = document.getElementById('image');
+            const info = document.getElementById('filterInfo');
+            const rect = image.getBoundingClientRect();
+            const percent = (event.clientX - rect.left) / rect.width;
+
+            let filter = '';
+            let value = '';
+
+            if (event.ctrlKey) {
+                const val = Math.round(percent * 500);
+                filter = `brightness(${val}%)`;
+                value = `brightness ${val}%`;
+            } else if (event.altKey) {
+                const val = Math.round(percent * 100);
+                filter = `grayscale(${val}%)`;
+                value = `grayscale ${val}%`;
+            } else if (event.shiftKey) {
+                const val = Math.round(percent * 360);
+                filter = `hue-rotate(${val}deg)`;
+                value = `hue-rotate ${val}°`;
+            } else {
+                const val = Math.round(percent * 10);
+                filter = `blur(${val}px)`;
+                value = `blur ${val}px`;
+            }
+
+            image.style.filter = filter;
+            info.innerText = `Фильтр: ${value}`;
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>   
+    
+    <main>
+        <img src="kai.jpg" id="image" onmousemove="applyFilter(event)">
+         <div class="info" id="filterInfo">Фильтр: none</div>
+         <p>При нажатии на Ctrl Alt Shift появляются разные фильтры</p>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
+
+
