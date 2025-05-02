@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }  
+        function showCoords(event) {
+             const block = document.getElementById('eventBlock');
+             let msg = `X: ${event.offsetX}<br>Y: ${event.offsetY}`;
+ 
+             block.style.color = "black";
+             block.style.backgroundColor = "#eee";
+             block.style.border = "2px solid black";
+ 
+             if (event.ctrlKey) {
+                 msg += "<br>Нажата клавиша Ctrl";
+                 block.style.color = "red";
+             }
+             if (event.altKey) {
+                 msg += "<br>Нажата клавиша Alt";
+                 block.style.backgroundColor = "green";
+             }
+             if (event.shiftKey) {
+                 msg += "<br>Нажата клавиша Shift";
+                 block.style.border = "4px dashed blue";
+             }
+ 
+             block.innerHTML = msg; 
+    }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        #eventBlock {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            background-color: white;
+            cursor: crosshair;
+            text-align: center;
+            line-height: 1.5;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>   
+    
+    <main>
+        <div id="eventBlock" onmousemove="showCoords(event)"></div>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
