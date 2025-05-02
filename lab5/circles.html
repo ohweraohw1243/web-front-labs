@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        window.onload = function () {
+        const colors = ['red', 'green', 'blue', 'purple', 'orange', 'black', 'brown', 'pink', 'gray', 'gold'];
+        const container = document.getElementById('circlesContainer');
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+
+        for (let i = 1; i <= 10; i++) {
+            const div = document.createElement('div');
+            div.className = 'circle';
+            div.textContent = i;
+            div.style.backgroundColor = colors[i - 1];
+
+            const x = Math.random() * (containerWidth - 80);
+            const y = Math.random() * (containerHeight - 80);
+
+            div.style.left = `${x}px`;
+            div.style.top = `${y}px`;
+
+            div.onclick = () => div.classList.add('hidden');
+            container.appendChild(div);
+            }
+        }
+        function resetCircles() {
+        document.querySelectorAll('.circle').forEach(c => c.classList.remove('hidden'));
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        .circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        color: white;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.7s ease;
+        cursor: pointer;
+        }
+        .hidden {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        }
+        .circles-container {
+        position: relative;
+        height: 500px;
+        margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>   
+    
+    <main>
+        <div class="circles-container" id="circlesContainer"></div>
+        <button onclick="resetCircles()">Показать все круги</button>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
