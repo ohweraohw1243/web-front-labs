@@ -17,14 +17,26 @@
             let footer = 'Приветствую вас на моей странице!\nвау мяу'
             alert(footer);
         }
-        function showMutipleTable() {
+        function showMultipleTable() {
             let tbl = document.getElementById('mtable');
-            tbl.innerHTML = '<h1>Таблица умножения</h1>'
-            for(i = 1; i <= 10; i++) {
-                let s = `<div>${i} * 7 = ${i*7}</div>`;
-                tbl.innerHTML += s;
+            let multiplier = parseInt(document.getElementById("multiplier").value) || 7;
+            let start = parseInt(document.getElementById("start").value) || 1;
+            let end = parseInt(document.getElementById("end").value) || 10;
+            
+            if (start > end) {
+                [start, end] = [end, start];
+                document.getElementById("start").value = start;
+                document.getElementById("end").value = end;
+                tbl.innerHTML = `<div class="warning">Обратите внимание: значения "Начать с" и "Закончить на" были автоматически изменены местами</div>`;
+            } else {
+                tbl.innerHTML = "";
+            }
+            tbl.innerHTML += '<h2>Таблица умножения</h2>';
+            for (let i = start; i <= end; i++) {
+                tbl.innerHTML += `<p>${multiplier} × ${i} = ${multiplier * i}</p>`;
             }
         }
+</script>
     </script>
     <style>
         header {
@@ -51,6 +63,30 @@
             padding: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        .controls {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: wheat;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: skyblue;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .warning {
+            color: red;
+            background-color: wheat;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 3px solid red;
+        }
     </style>
 </head>
 <body onload="showMutipleTable()">
@@ -60,6 +96,24 @@
     
     <main>
         <div id="mtable"></div>
+    
+        <div class="controls">
+            <div class="input-group">
+                <label for="multiplier">Умножить на:</label>
+                <input type="number" id="multiplier" value="7" min="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="start">Начать с:</label>
+                <input type="number" id="start" value="1" min="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="end">Закончить на:</label>
+                <input type="number" id="end" value="10" min="1">
+            </div>
+            
+            <button onclick="showMultipleTable()">Таблица</button>
     </main>
 
     <footer ondblclick="showFooter()">
