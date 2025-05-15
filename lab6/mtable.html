@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        function showMutipleTable() {
+            let tbl = document.getElementById('mtable');
+            tbl.innerHTML = '<h1>Таблица умножения</h1>'
+            for(i = 1; i <= 10; i++) {
+                let s = `<div>${i} * 7 = ${i*7}</div>`;
+                tbl.innerHTML += s;
+            }
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #mtable {
+            background-color: skyblue;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body onload="showMutipleTable()">
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>   
+    
+    <main>
+        <div id="mtable"></div>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
