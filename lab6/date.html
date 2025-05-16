@@ -1,50 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Волков Даниил Константинович. Лабораторная 6</title>
-    <link rel="stylesheet" href="../main.css">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../favicon-16x16.png">
-    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../favicon-16x16.png" />
+    <link rel="shortcut icon" href="../favicon-32x32.png" />
     <script>
         function showAuthor() {
             let author = 'Автор страницы:\nВолков Даниил Константинович';
             alert(author);
         }
+
         function showFooter() {
-            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            let footer = 'Приветствую вас на моей странице!\nвау мяу';
             alert(footer);
         }
+
+        let colorIntervalId = null;
+        let timeIntervalId = null;
+
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        function changeColors() {
+            const header = document.getElementsByTagName('header')[0];
+            header.style.color = getRandomColor();
+        }
+
         function showDate() {
-            let out = document.getElementById('current-date');
-            let today = new Date();
-            out.innerHTML = today.toLocaleDateString('ru-RU');
+            const out = document.getElementById('current-date');
+            const today = new Date();
+            out.innerHTML = today.toLocaleString('ru-RU');
+
             document.getElementById("locale-ru").textContent = "Россия (ru-RU): " + today.toLocaleString('ru-RU');
             document.getElementById("locale-en").textContent = "США (en-US): " + today.toLocaleString('en-US');
             document.getElementById("locale-fr").textContent = "Франция (fr-FR): " + today.toLocaleString('fr-FR');
             document.getElementById("locale-ja").textContent = "Япония (ja-JP): " + today.toLocaleString('ja-JP');
             document.getElementById("locale-de").textContent = "Германия (de-DE): " + today.toLocaleString('de-DE');
         }
+
+        window.onload = function () {
+            showDate();
+
+            document.getElementById('startColorBtn').onclick = function () {
+                changeColors();
+                if (colorIntervalId === null) {
+                    colorIntervalId = setInterval(changeColors, 1000);
+                }
+                this.disabled = true;
+                document.getElementById('stopColorBtn').disabled = false;
+            };
+
+            document.getElementById('stopColorBtn').onclick = function () {
+                if (colorIntervalId !== null) {
+                    clearInterval(colorIntervalId);
+                    colorIntervalId = null;
+                }
+                this.disabled = true;
+                document.getElementById('startColorBtn').disabled = false;
+            };
+
+            document.getElementById('startTimeBtn').onclick = function () {
+                showDate();
+                if (timeIntervalId === null) {
+                    timeIntervalId = setInterval(showDate, 1000);
+                }
+                this.disabled = true;
+                document.getElementById('stopTimeBtn').disabled = false;
+            };
+
+            document.getElementById('stopTimeBtn').onclick = function () {
+                if (timeIntervalId !== null) {
+                    clearInterval(timeIntervalId);
+                    timeIntervalId = null;
+                }
+                this.disabled = true;
+                document.getElementById('startTimeBtn').disabled = false;
+            };
+        };
     </script>
     <style>
         header {
             cursor: pointer;
         }
+
         footer {
             cursor: pointer;
         }
+
         main {
             padding: 20px;
             text-align: center;
         }
+
         #current-date {
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 30px;
             color: red;
         }
+
         .locale-block {
             margin: 15px 0;
             font-size: 18px;
@@ -52,23 +114,33 @@
         }
     </style>
 </head>
-<body onload="showDate()">
+<body>
     <header onclick="showAuthor()">
         НГТУ, ФБ, Лабораторная работа 6
-    </header>   
-    
+    </header>
+
     <main>
+        <div style="text-align:center; margin: 15px 0;">
+            <button id="startColorBtn">Старт</button>
+            <button id="stopColorBtn" disabled>Стоп</button>
+        </div>
+
         <div id="current-date"></div>
+
         <div class="locale-block" id="locale-ru"></div>
         <div class="locale-block" id="locale-en"></div>
         <div class="locale-block" id="locale-fr"></div>
         <div class="locale-block" id="locale-ja"></div>
         <div class="locale-block" id="locale-de"></div>
+
+        <div style="text-align:center; margin-top: 20px;">
+            <button id="startTimeBtn">Обновлять время</button>
+            <button id="stopTimeBtn" disabled>Остановить обновление времени</button>
+        </div>
     </main>
 
     <footer ondblclick="showFooter()">
         &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
     </footer>
-
 </body>
 </html>
