@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        const days = [];
+        let selectedContainer = null;
+
+        function generateChart() {
+            const chart = document.getElementById("chart");
+            chart.innerHTML = "";
+            days.length = 0;
+            selectedContainer = null;
+
+            for (let i = 1; i <= 30; i++) {
+                const min = Math.floor(Math.random() * 10) + 5;
+                const max = min + Math.floor(Math.random() * 15) + 5;
+
+                days.push({ day: i, min, max });
+
+                const container = document.createElement("div");
+                container.className = "bar-container";
+                container.id = "container-" + i;
+                container.title = `День ${i}: мин. ${min} °C, макс. ${max} °C`;
+
+                const rangeBar = document.createElement("div");
+                rangeBar.className = "range-bar";
+                rangeBar.style.height = `${(max - min) * 5}px`;
+
+                const minBar = document.createElement("div");
+                minBar.className = "min-bar";
+                minBar.style.height = `${min * 5}px`;
+
+                container.appendChild(rangeBar);
+                container.appendChild(minBar);
+
+                const dayLabel = document.createElement("div");
+                dayLabel.className = "day-label";
+                dayLabel.innerText = i;
+                container.appendChild(dayLabel);
+
+                container.addEventListener("click", () => {
+                    document.getElementById("dayInput").value = i;
+                    highlightDay();
+                });
+
+                chart.appendChild(container);
+            }
+            document.getElementById("dayInfo").innerText = "";
+        }
+        function highlightDay() {
+            const input = document.getElementById("dayInput");
+            const num = parseInt(input.value);
+
+            if (selectedContainer) {
+                selectedContainer.classList.remove("highlight");
+                selectedContainer = null;
+            }
+
+            if (num >= 1 && num <= 30) {
+                const container = document.getElementById("container-" + num);
+                container.classList.add("highlight");
+                selectedContainer = container;
+
+                const day = days[num - 1];
+                document.getElementById("dayInfo").innerText = `День ${day.day}: мин. ${day.min}°C, макс. ${day.max}°C`;
+            } else {
+                document.getElementById("dayInfo").innerText = "Некорректный номер дня.";
+            }
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+        #chart {
+            display: flex;
+            align-items: flex-end;
+            height: 400px;
+            gap: 4px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        .bar-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            width: 20px;
+            cursor: pointer;
+            flex-grow: 1;
+            min-width: 15px
+        }
+
+        .min-bar {
+            background-color: blue;
+            width: 100%;
+        }
+
+        .range-bar {
+            background-color: red;
+            width: 100%;
+        }
+
+        .highlight {
+            outline: 2px solid black;
+            border-radius: 2px;
+        }
+
+        #dayInfo {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .day-label {
+            margin-top: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body onload="generateChart()">
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <main>
+        <h2>Диаграмма температур за месяц</h2>
+        <div id="chart"></div>
+
+        <label for="dayInput">Введите номер дня (1–30):</label>
+        <input type="number" id="dayInput" min="1" max="30">
+        <button onclick="highlightDay()">Показать</button>
+
+        <div id="dayInfo"></div>
+    </main>
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
