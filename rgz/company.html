@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="mfavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="mfavicon-16x16.png">
+    <link rel="shortcut icon" href="mfavicon-32x32.png"> 
+    <title>О компании МТС</title>
+    <script>
+        window.addEventListener('scroll', () => {
+            const toTop = document.querySelector('.to-top');
+            if (window.scrollY > 300) {
+                toTop.classList.add('show');
+            } else {
+                toTop.classList.remove('show');
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            line-height: 1.6;
+        }
+        header {
+            background-color: red;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: red;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 15px 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: white;
+            color: red;
+        }
+        main {
+            padding-top: 100px;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        h1, h2 {
+            color: red;
+            text-align: center;
+            position: relative;
+        }
+        h1::after, h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: red;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        figure {
+            margin: 30px auto;
+            text-align: center;
+        }
+        figure img {
+            border-radius: 10px;
+            max-width: 90%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        figure img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: black;
+        }
+        .logo-small {
+            max-width: 150px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: red;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .to-top.show {
+            display: block;
+        }
+
+        .to-top:hover {
+            background-color: white;
+            color: red;
+            transform: translateY(-3px);
+        }
+        footer {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>МТС</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="company.html" class="active">О компании</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="currency converter.html">Курс валют</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="video.html">Видео</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>МТС — <em>лидер</em> в сфере <u>телекоммуникаций</u></h2>
+            <p><strong>МТС</strong> — крупнейший оператор связи в России и СНГ, основанный в 1993 году.</p>
+            <figure>
+                <img src="mtslogo.png" alt="Логотип МТС" class="logo-small">
+                <figcaption>Логотип компании МТС</figcaption>
+            </figure>
+            <p>Подробнее на <a href="https://www.mts.ru" target="_blank">официальном сайте</a>.</p>
+        </section>
+
+        <section>
+            <h2>История развития</h2>
+            <p>В 1993 году Компания МТС образована оператором фиксированной связи МГТС, компаниями Deutsche Telekom, Siemens и другими инвесторами. </p>
+            <p>С 1994 года предоставляет услуги GSM связи. В 2000 году компания вышла на IPO.</p>
+            <p>С 1997 года бренд стал успешно продвигать свои услуги в многочисленных российских регионах.</p>
+            <p>Сеть стремительно развивалась. К 2001 году воспользоваться услугами МТС стало возможно в 21 российском регионе. Число абонентов достигло двух млн.</p>
+            <p>В 2004 году мобильная связь МТС покрыла почти всю страну, кроме Чечни и Пензенской области.</p>
+            <p>К концу 2009 года численность активных пользователей МТС достигло 100 миллионов человек в семи различных государствах. Сеть 3G была проведена в пятидесяти пяти городах России. 
+            Компания МТС стала федеральным мобильным оператором, доступным жителям всех субъектов РФ.</p>
+            <p>В 2010 году бренд МТС признали самым дорогим в РФ. Агентство Brandz оценило его в 9,7 млрд долларов.</p>
+            <p>В 2017 году компания выходит на перспективные рынки: рынок облачных услуг для крупного бизнеса, услуг по облачной обработке больших массивов данных, запуск собственной IoT‑платформы для развертывания интернета вещей на предприятиях и др.</p>
+            <figure>
+                <img src="mtsofiss.png" alt="Офис МТС">
+                <figcaption>Главный офис компании МТС</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>Руководители</h2>
+            <p>В мае 2008 года Советом директоров ОАО «МТС» на пост президента компании был назначен Михаила Шамолина. Он трудился в этой фирме с 2005 года на должности вице-президента. Через год он возглавил крупное подразделение МТС — «Россию». За время его работы доходы компании «МТС Россия» выросли на 67%.</p>
+            <p>С 2006 по 2008 год на этом посту работал Леонид Меламед, позже ставший президентом АФК «Система». Он внес существенный вклад в развитие бизнеса. В период его руководства компания стала признанным лидером телекоммуникационной отрасли. Абонентская база увеличилась на 24 миллиона пользователей.</p>
+            <p>В 2011 году президентом фирмы стал Андрей Дубовсков и проработал на этой должности до 2018 года.</p>
+            <p>В марте 2018 года на этот пост был назначен Алексей Корня. Позже, в марте 2021 года, его заменил Вячеслав Николаев, который работает на этом посту и по сей день.</p>
+            <figure>
+                <img src="mpresident.jpg" alt="Президент МТС - Вячеслав Николаев">
+                <figcaption>Президент компании МТС — Вячеслав Николаев</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>МТС Сейчас</h2>
+            <p>На протяжении всей деятельности компания активно развивается, внедряет новые технологии и расширяет перечень предоставляемых услуг. Помимо продажи смартфонов и аксессуаров, фирма предлагает своим пользователям:</p>
+            <ul>
+                <li>Банковские услуги: сервис интернет-платежей, банковские карты, сервис POS-кредитование;</li>
+                <li>Программу лояльности для приобретения сотовых телефонов в офисах МТС и оплаты мобильных услуг;</li> 
+                <li>Все виды ТВ: цифровое, кабельное, спутниковое и IP;</li>
+                <li>Стриминговый музыкальный сервис;</li>
+                <li>Сервисы для просмотра в формате онлайн различных кинофильмов и телепередач, для посещения онлайн-концертов и приобретения билетов на мероприятия, для чтения электронных и прослушивания аудиокниг;</li>
+            </ul>
+            <p>Также компания активно занимается внедрением сети 5G.</p>
+            <p>
+                Компания не останавливается на достигнутом и продолжает внедрять инновации в повседневную жизнь миллионов людей.
+                МТС стремится создать цифровую экосистему, объединяющую телекоммуникации, финансы, развлечения и здравоохранение.
+            <p>
+                В ближайшие годы МТС планирует расширить свои технологические горизонты, развивать направления искусственного интеллекта, больших данных и интернета вещей, 
+                чтобы оставаться на передовых позициях цифровой трансформации общества.
+            </p>
+        </section>
+    </main>
+
+    <button class="to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">▲</button>
+
+    <footer>
+        &copy; 2025 ПАО «МТС» Все права защищены
+    </footer>
+</body>
+</html>

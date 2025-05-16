@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="mfavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="mfavicon-16x16.png">
+    <link rel="shortcut icon" href="mfavicon-32x32.png"> 
+    <title>Контакты МТС</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+        header {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: red;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a.active,
+        nav a:hover {
+            background-color: white;
+            color: red;
+        }
+        .container {
+            flex: 1 0 auto;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: red;
+            text-align: center;
+        }
+        h3 {
+            color: red;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: red;
+            text-decoration: underline;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .flex-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .text-block {
+            flex: 1;
+            min-width: 300px;
+        }
+        .qr-block {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+        .map-block {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .map-block iframe {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Контакты МТС</h1>
+    </header>
+
+    <nav>
+        <a href="company.html">О компании</a>
+        <a href="news.html">Новости</a>
+        <a href="currency converter.html">Курс валют</a>
+        <a href="contacts.html" class="active">Контакты</a>
+        <a href="video.html">Видео</a>
+    </nav>
+
+    <div class="container">
+        <h2>Контактный центр для частных клиентов</h2>
+
+        <div class="flex-wrapper">
+            <div class="text-block">
+                <h3>Чат поддержки в Мой МТС</h3>
+                <ul>
+                    <li>Наведите камеру на QR-код и установите приложение <strong>Мой МТС</strong>.</li>
+                    <li>В нижнем меню перейдите в раздел «Поддержка».</li>
+                    <li>Нажмите кнопку <strong>«Написать в чат»</strong>.</li>
+                    <li>Подготовьте скриншоты или документы, подробно опишите проблему, пока ждёте оператора.</li>
+                    <li>Когда поступит ответ, вам придёт уведомление от приложения.</li>
+                </ul>
+
+                <h3>Чат поддержки в личном кабинете</h3>
+                <ul>
+                    <li>Войдите в <strong>Личный кабинет</strong>.</li>
+                    <li>В правом нижнем углу откройте виджет чата.</li>
+                    <li>Подготовьте скриншоты или документы, подробно опишите проблему, пока ждёте оператора.</li>
+                    <li>Дождитесь ответа, не закрывая страницу.</li>
+                </ul>
+
+                <h3>Самое быстрое решение вашего вопроса</h3>
+                <p>Найдите ответ самостоятельно в разделе <a href="https://support.mts.ru/">Справка</a>.</p>
+            </div>
+
+            <div class="qr-block">
+                <img src="Screenshot_2.png" alt="QR код">
+                <p>Скачайте Мой МТС</p>
+            </div>
+        </div>
+
+        <div class="map-block">
+            <h3>Наш офис на карте</h3>
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.615569%2C55.752023&mode=search&text=МТС&z=17" width="100%" height="400" frameborder="0" allowfullscreen="true"></iframe>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2025 ПАО «МТС» Все права защищены
+    </footer>
+
+</body>
+</html>

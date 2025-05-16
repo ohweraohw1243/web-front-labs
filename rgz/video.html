@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="mfavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="mfavicon-16x16.png">
+    <link rel="shortcut icon" href="mfavicon-32x32.png">
+    <title>Видео МТС</title>
+    <style>
+        html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        }
+        header {
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        flex-shrink: 0;
+        }
+        nav {
+        background-color: red;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-shrink: 0;
+        }
+        nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        }
+        nav a.active,
+        nav a:hover {
+        background-color: white;
+        color: red;
+        }
+        main {
+        flex-grow: 1;
+        position: relative;
+        }
+        iframe {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        }
+        footer {
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        flex-shrink: 0;
+        font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Видео МТС</h1>
+    </header>
+
+    <nav>
+        <a href="company.html">О компании</a>
+        <a href="news.html">Новости</a>
+        <a href="currency converter.html">Курс валют</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="video.html" class="active">Видео</a>
+    </nav>
+
+    <main>
+        <iframe
+        src="https://www.youtube.com/embed/DLlZRfdQ67g?si=lwM68RvXwe4I8UD-" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+    </main>
+
+    <footer>
+        &copy; 2025 ПАО «МТС» Все права защищены
+    </footer>
+
+</body>
+</html>
