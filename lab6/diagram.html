@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png"> 
+    <script>
+        function showAuthor() {
+            let author = 'Автор страницы:\nВолков Даниил Константинович';
+            alert(author);
+        }
+        function showFooter() {
+            let footer = 'Приветствую вас на моей странице!\nвау мяу'
+            alert(footer);
+        }
+        function showDiagram() {
+            const data = [20, 35, 50, 65, 80, 55, 40, 75, 90, 60];
+            const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'pink', 'brown', 'cyan'];
+
+            const bars = document.getElementsByClassName('bar');
+            const diagHeight = document.getElementById('diag').clientHeight;
+            const maxData = Math.max(...data);
+            const k = diagHeight / maxData * 0.9;
+
+            for (let i = 0; i < data.length; i++) {
+                bars[i].style.height = (k * data[i]) + 'px';
+                bars[i].style.backgroundColor = colors[i];
+                bars[i].textContent = data[i];
+            }
+        }
+    </script>
+    <style>
+        header {
+            cursor: pointer;
+        }
+        footer {
+            cursor: pointer;
+        }
+
+        #diag {
+            display: flex;
+            align-items: flex-end;
+            height: 400px;
+            width: 80%;
+            margin: 50px auto;
+            border: 1px solid black;
+            padding: 10px;
+            gap: 5px;
+        }
+
+        .bar {
+            background-color: grey;
+            width: 100%;
+            text-align: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-size: 14px;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+    </style>
+</head>
+<body onload="showDiagram()">
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>   
+    
+    <main>
+        <div id="diag">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </main>
+
+    <footer ondblclick="showFooter()">
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
