@@ -22,8 +22,8 @@
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    currentRate = data.Valute.AUD.Value;
-                    document.getElementById('result').innerText = 'Текущий курс AUD: ' + currentRate.toFixed(2) + ' ₽';
+                    currentRate = data.Valute.AZN.Value;
+                    document.getElementById('result').innerText = 'Текущий курс AZN: ' + currentRate.toFixed(2) + ' ₽';
                 })
                 .catch(() => {
                     document.getElementById('result').innerText = 'Ошибка загрузки курса.';
@@ -76,7 +76,7 @@
                     var p = fetch(url)
                         .then(resp => resp.json())
                         .then(data => {
-                            var val = data.Valute.AUD.Value;
+                            var val = data.Valute.AZN.Value;
                             values[i] = val;
                             chartData[i] = {date: dateStr, value: val};
                         })
@@ -215,17 +215,17 @@
         <h2>Курс валют</h2>
         <input type="number" id="amount" placeholder="Введите сумму" />
         <select id="direction">
-            <option value="to">Рубли → AUD</option>
-            <option value="from">AUD → Рубли</option>
+            <option value="to">Рубли → AZN</option>
+            <option value="from">AZN → Рубли</option>
         </select>
         <br />
         <button onclick="calculate()">Рассчитать</button>
         <div class="result" id="result">Загрузка курса...</div>
 
-        <button onclick="showChart()">Показать график курса AUD за месяц</button>
+        <button onclick="showChart()">Показать график курса AZN за месяц</button>
 
         <div id="chart-container">
-            <h2>Курс AUD за последний месяц</h2>
+            <h2>Курс AZN за последний месяц</h2>
             <canvas id="chart"></canvas>
             <div id="info"></div>
         </div>
