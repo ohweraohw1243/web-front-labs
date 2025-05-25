@@ -1,0 +1,43 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Курс доллара</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <script src="dollar-data.js"></script>
+    <script>
+        function showDollarRates(button) {
+        const table = document.getElementById('usdTable');
+        let sum = 0;
+        for (let i = 0; i < exchange.length; i++) {
+            const tr = document.createElement('tr');
+            const td = document.createElement('td');
+            const value = parseFloat(exchange[i]);
+            td.innerText = value.toFixed(2);
+            tr.appendChild(td);
+            table.appendChild(tr);
+            sum += value;
+        }
+        const avg = (sum / exchange.length).toFixed(2);
+        document.getElementById('average').textContent = `Средний курс: ${avg}`;
+        button.remove();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showDollarRates(this)">Показать курс</button>
+        <table id="usdTable" border="1"></table>
+        <div id="average"></div>
+    </main>
+    <footer>
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
