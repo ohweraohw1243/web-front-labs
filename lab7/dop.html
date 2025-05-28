@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волков Даниил Константинович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const latitude = 55.0415;
+        const longitude = 82.9346;
+        const timezone = 'Asia/Novosibirsk';
+
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m&timezone=${timezone}`)
+            .then(res => res.json())
+            .then(data => {
+                const temp = data.current.temperature_2m;
+                const humidity = data.current.relative_humidity_2m;
+                document.getElementById('current').textContent = `Текущая температура: ${temp}°C, Влажность: ${humidity}%`;
+            });
+
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m&forecast_days=1&timezone=${timezone}`)
+            .then(res => res.json())
+            .then(data => {
+                const labels = data.hourly.time.map(t => t.slice(11, 16)); 
+                const temps = data.hourly.temperature_2m;
+                const humidities = data.hourly.relative_humidity_2m;
+
+            const ctx = document.getElementById('weatherChart').getContext('2d');
+            new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                {
+                    label: 'Температура (°C)',
+                    data: temps,
+                    backgroundColor: 'rgba(255, 165, 0, 0.7)' 
+                },
+                {
+                    label: 'Влажность (%)',
+                    data: humidities,
+                    backgroundColor: 'rgba(70, 130, 180, 0.7)' 
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                y: { beginAtZero: true },
+                x: { title: { display: true, text: 'Время' } }
+                }
+            }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <h1>Погода в Новосибирске</h1>
+        <div id="current">Загрузка данных...</div>
+        <canvas id="weatherChart" width="1200" height="400"></canvas>
+    </main>
+    <footer>
+        &copy; Волков Даниил, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
